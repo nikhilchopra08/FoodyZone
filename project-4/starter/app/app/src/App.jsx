@@ -1,8 +1,55 @@
 
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import SearchResult from "./components/SearchResults/searchResult.jsx";
+
+
+
+
+const BASE_URL = "http://localhost:9000/"
 
 
 function App() {
+
+  const [data,setData] = useState(null);
+
+  const [loading , setloading] = useState(false);
+
+  const [error , setError] = useState(null)
+
+
+  useEffect(() => {
+    
+
+  const FetchFoodData = async() => {
+
+    setloading(true);
+try{
+    const response = await fetch(BASE_URL);
+
+    const json = await response.json();
+    
+
+    setData(json);
+  setloading(false);
+
+}
+  catch(error){
+    setError("unable to fetch data");
+
+  }
+    // console.log(json);
+
+  };
+      FetchFoodData();
+}, []);
+  // FetchFoodData();
+
+  console.log(data);
+  
+
+  if(error) return <div>{error}</div>
+  if(loading) return <div>loading</div>
 
   return (
 
@@ -25,11 +72,7 @@ function App() {
         <Button>Dinner</Button>
       </FilterContainer>
 
-      <FoodCardContainer>
-        <FoodCards>
-
-        </FoodCards>
-      </FoodCardContainer>
+      <SearchResult data={data}/>
     </Container>
   );
 }
@@ -77,10 +120,3 @@ const Button = styled.button`
   color: white;
 `;
 
-const FoodCardContainer = styled.section`
-background-image : url("./public/images/bg.png");
-background-size : cover;
-height: calc(100vh - 210px);
-`;
-
-const FoodCards = styled.div``;
