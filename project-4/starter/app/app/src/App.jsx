@@ -52,7 +52,27 @@ try{
 
   // console.log(data);
 
-   const searchFood = (e) =>{
+  const searchFood = (e) => {
+    const searchValue = e.target.value;
+
+    console.log(searchValue)
+
+    if (searchValue === "") {
+      setfilteredData(null);
+    }
+
+    const filter = data?.filter((food) =>
+      food.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setfilteredData(filter);
+  };
+
+
+
+
+
+
+   const filteredFood = (type) =>{
 if(type == "all"){
   setfilteredData(data);
   setselectedBtn("all");
@@ -66,34 +86,34 @@ setSelectedBtn('type');
    };
 
    const filterBtns = [{
-    name: "ALL"
+    name: "ALL",
     type: "all"},
     {
-      name: "breakfast"
+      name: "Breakfast",
       type: "breakfast"},
       {
-        name: "Lunch"
+        name: "Lunch",
         type: "lunch"},
         {
-          name: "Dinner"
+          name: "Dinner",
           type: "dinner"},
    ]
 
 
-    const SearchValue = e.target.value;
+  //   const SearchValue = e.target.value;
 
-    console.log(SearchValue);
+  //   console.log(SearchValue);
 
-    if(SearchValue==""){
-      setfilteredData(null);
-    }
+  //   if(SearchValue==""){
+  //     setfilteredData(null);
+  //   }
 
-    const filter = data?.filter((food) => food.name.toLowerCase().includes(SearchValue.toLowerCase()));
-    setfilteredData(filter);
+  //   const filter = data?.filter((food) => food.name.toLowerCase().includes(SearchValue.toLowerCase()));
+  //   setfilteredData(filter);
   
-   const filteredFood = (type) =>{
+  //  const filteredFood = (type) =>{
 
-   }
+  //  }
 
   if(error) return <div>{error}</div>
   if(loading) return <div>loading</div>
@@ -112,10 +132,11 @@ setSelectedBtn('type');
       </TopContainer>
 
       <FilterContainer>
-        <Button  onClick={() => filteredFood("all")}>All</Button>
-        <Button onClick={() => filteredFood("breakfast")}>Breakfast</Button>
-        <Button onClick={() => filteredFood("lunch")}>Lunch</Button>
-        <Button onClick={() => filteredFood("dinner")}>Dinner</Button>
+
+        {filterBtns.map((value) =>(
+        <Button key={value.name} onClick={() => filteredFood(value.type)}>{value.name}</Button>))}
+        
+        
       </FilterContainer>
 
     
