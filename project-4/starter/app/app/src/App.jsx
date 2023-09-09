@@ -1,6 +1,7 @@
 
 import styled from 'styled-components';
 
+
 function App() {
 
   return (
@@ -16,6 +17,19 @@ function App() {
           <input placeholder='Search Food' />
         </div>
       </TopContainer>
+
+      <FilterContainer>
+        <Button>All</Button>
+        <Button>Breakfast</Button>
+        <Button>Lunch</Button>
+        <Button>Dinner</Button>
+      </FilterContainer>
+
+      <FoodCardContainer>
+        <FoodCards>
+
+        </FoodCards>
+      </FoodCardContainer>
     </Container>
   );
 }
@@ -47,3 +61,26 @@ const TopContainer = styled.section`
       }
     }
 `;
+
+const FilterContainer = styled.section`
+display : flex;
+justify-content : center;
+gap : 12px;
+padding-bottom : 40px
+`;
+
+const Button = styled.button`
+  background-color: #ff4343;
+  border-radius: 5px;
+  padding: 6px 12px;
+  border: none;
+  color: white;
+`;
+
+const FoodCardContainer = styled.section`
+background-image : url("./public/images/bg.png");
+background-size : cover;
+height: calc(100vh - 210px);
+`;
+
+const FoodCards = styled.div``;
