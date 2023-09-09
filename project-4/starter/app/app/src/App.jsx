@@ -6,7 +6,7 @@ function App() {
   return (
 
     // <div>hi</div>
-    <MainContainer>
+    <Container>
       <TopContainer>
         <div className='logo'>
           <img src='./images/logo.svg' alt='Logo' />
@@ -16,13 +16,34 @@ function App() {
           <input placeholder='Search Food' />
         </div>
       </TopContainer>
-    </MainContainer>
+    </Container>
   );
 }
 
 export default App;
 
 
-const MainContainer = styled.div`
-background-color: #323334`;
-const TopContainer = styled.section``;
+const Container = styled.div`
+    max-width: 1200px;
+    margin : 0 auto;
+
+`;
+const TopContainer = styled.section`
+    min-height: 140px;
+    display : flex;
+    justify-content: space-between;
+    padding: 16px;
+    align-item: center;
+
+    .Search {
+      input{
+        border: 1px solid red;
+        background-color : transparent;
+        color : white;
+        border-radius: 5px;
+        height : 40px;
+        font-size: 16px;
+        padding : 0 10px;
+      }
+    }
+`;
