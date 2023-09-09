@@ -6,7 +6,7 @@ import SearchResult from "./components/SearchResults/searchResult.jsx";
 
 
 
-const BASE_URL = "http://localhost:9000/"
+export const BASE_URL = "http://localhost:9000";
 
 
 function App() {
@@ -15,7 +15,9 @@ function App() {
 
   const [loading , setloading] = useState(false);
 
-  const [error , setError] = useState(null)
+  const [error , setError] = useState(null);
+
+  const [filteredData , setfilteredData] = useState(null);
 
 
   useEffect(() => {
@@ -32,6 +34,7 @@ try{
 
     setData(json);
   setloading(false);
+  setfilteredData(json)
 
 }
   catch(error){
@@ -45,15 +48,27 @@ try{
 }, []);
   // FetchFoodData();
 
-  console.log(data);
+  // console.log(data);
+
+   const searchFood = (e) =>{
+    const SearchValue = e.target.value;
+
+    console.log(SearchValue);
+
+    if(SearchValue==""){
+      setfilteredData(null);
+    }
+
+    const filter = data?.filter((food) => food.name.toLowerCase().includes(SearchValue.toLowerCase()));
+    setfilteredData(filter);
+   }
   
 
   if(error) return <div>{error}</div>
   if(loading) return <div>loading</div>
 
   return (
-
-    // <div>hi</div>
+<>
     <Container>
       <TopContainer>
         <div className='logo'>
@@ -61,7 +76,7 @@ try{
         </div>
 
         <div className='Search'>
-          <input placeholder='Search Food' />
+          <input onChange={searchFood} placeholder='Search Food' />
         </div>
       </TopContainer>
 
@@ -72,15 +87,19 @@ try{
         <Button>Dinner</Button>
       </FilterContainer>
 
-      <SearchResult data={data}/>
+    
     </Container>
+
+<SearchResult data={filteredData}/>
+
+</>
   );
 }
 
 export default App;
 
 
-const Container = styled.div`
+export const Container = styled.div`
     max-width: 1200px;
     margin : 0 auto;
 
@@ -112,7 +131,7 @@ gap : 12px;
 padding-bottom : 40px
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   background-color: #ff4343;
   border-radius: 5px;
   padding: 6px 12px;
