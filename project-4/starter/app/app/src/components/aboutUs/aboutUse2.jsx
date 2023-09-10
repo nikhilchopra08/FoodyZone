@@ -2,13 +2,14 @@ import React from 'react'
 
 const aboutUse2 = () => {
   return (
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+    <div className="row featurette">
+      <div className="col-md-7 order-md-2">
+        <h2 className="featurette-heading fw-normal lh-1">A Feast for the Senses</h2>
+        <p className="lead">As you step inside our restaurant, you'll be greeted by a warm ambiance that sets the stage for an unforgettable dining experience. The soft glow of candlelight, the hum of conversation, and the aroma of exquisite dishes combine to create an atmosphere that's both inviting and enchanting.</p>
       </div>
-      <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+      <div className="col-md-5 order-md-1">
+        <img src='https://img.freepik.com/free-photo/confident-asian-businesswoman-showing-thumbs-up-standing-near-entrance-her-cafe-restaurant-rec_1258-126151.jpg?w=2000&t=st=1694338565~exp=1694339165~hmac=c3ca0949c48b4a691041156e99fc27a6231709efaebaa9e81367830f456b04c9'width="600" 
+     height="400"/>
       </div>
     </div>
   )

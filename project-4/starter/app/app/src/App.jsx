@@ -6,7 +6,8 @@ import Cover from "./components/cover.jsx"
 import Nav from "./components/Nav.jsx"
 import Footer from "./components/footer/footer.jsx"
 import AboutUs from "./components/aboutUs/aboutUs.jsx"
-
+import AboutUse2 from './components/aboutUs/aboutUse2.jsx'
+import AboutUs3 from "./components/aboutUs/aboutUs3.jsx"
 
 export const BASE_URL = "http://localhost:9000";
 
@@ -145,6 +146,10 @@ setSelectedBtn('type');
 <SearchResult data={filteredData}/>
 
 <AboutUs/>
+
+<AboutUse2/>
+
+<AboutUs3/>
 
 <Footer/>
 
