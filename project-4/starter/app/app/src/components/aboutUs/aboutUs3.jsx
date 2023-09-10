@@ -1,8 +1,10 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.css';
+import styles from './aboutUs.module.css'
 
 const aboutUs3 = () => {
   return (
-    <div class="row featurette">
+    <div class={`${styles.row}`}>
     <div class="col-md-7">
       <h2 class="featurette-heading fw-normal lh-1">Your Table Awaits</h2>
       <p class="lead">Whether you're celebrating a special occasion, enjoying a night out with friends, or simply savoring a moment of solitude, [Restaurant Name] is your destination. We're here to make every visit an occasion to remember.</p>
