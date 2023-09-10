@@ -2,8 +2,10 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SearchResult from "./components/SearchResults/searchResult.jsx";
-
-
+import Cover from "./components/cover.jsx"
+import Nav from "./components/Nav.jsx"
+import Footer from "./components/footer/footer.jsx"
+import AboutUs from "./components/aboutUs/aboutUs.jsx"
 
 
 export const BASE_URL = "http://localhost:9000";
@@ -120,16 +122,14 @@ setSelectedBtn('type');
 
   return (
 <>
+<Nav/>
+<Cover/>
     <Container>
       <TopContainer>
-        <div className='logo'>
-          <img src='./images/logo.svg' alt='Logo' />
-        </div>
-
         <div className='Search'>
           <input onChange={searchFood} placeholder='Search Food' />
         </div>
-      </TopContainer>
+      
 
       <FilterContainer>
 
@@ -138,17 +138,23 @@ setSelectedBtn('type');
         
         
       </FilterContainer>
-
+</TopContainer>
     
     </Container>
 
 <SearchResult data={filteredData}/>
+
+<AboutUs/>
+
+<Footer/>
 
 </>
   );
 }
 
 export default App;
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 export const Container = styled.div`
@@ -157,11 +163,14 @@ export const Container = styled.div`
 
 `;
 const TopContainer = styled.section`
-    min-height: 140px;
+    min-height: 100px;
     display : flex;
     justify-content: space-between;
     padding: 16px;
     align-item: center;
+    width: 100%;
+    flex-direction: row-reverse;
+
 
     .Search {
       input{
@@ -172,6 +181,9 @@ const TopContainer = styled.section`
         height : 40px;
         font-size: 16px;
         padding : 0 10px;
+        width: 80%;
+
+        
       }
     }
 `;
@@ -190,4 +202,3 @@ export const Button = styled.button`
   border: none;
   color: white;
 `;
-
